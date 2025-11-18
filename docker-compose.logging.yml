@@ -8,6 +8,9 @@ services:
       ZOOKEEPER_TICK_TIME: 2000
     ports:
       - "2181:2181"
+    volumes:
+      - zookeeper_data:/var/lib/zookeeper/data
+      - zookeeper_log:/var/lib/zookeeper/log
     networks:
       - musiconnect-network
     healthcheck:
@@ -86,6 +89,8 @@ services:
 
 volumes:
   kafka_data:
+  zookeeper_data:
+  zookeeper_log:
 
 networks:
   musiconnect-network:
